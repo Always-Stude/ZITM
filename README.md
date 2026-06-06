@@ -37,3 +37,8 @@ example(Differential_analysis)
 📄 License
 
 MIT License
+
+📄 Supplementary Article Code
+
+All scripts for sensitivity analysis & synthetic data simulation are stored in folder:
+`article_scripts`
