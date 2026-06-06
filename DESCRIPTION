@@ -1,0 +1,19 @@
+Package: ZITM
+Title: Single-Cell Differential Expression Analysis with ZITM
+Version: 0.1.0
+Authors@R: person("Cengkai", "Yang", email = "1070833974@qq.com", role = c("aut", "cre"))
+Description: Differential expression analysis for single-cell RNA-seq data using Zero-Inflated Telegraph Model (ZITM).
+License: MIT
+Encoding: UTF-8
+RoxygenNote: 7.3.3
+Imports: 
+    pbapply,
+    Matrix,
+    MASS,
+    Seurat,
+    dplyr,
+    statmod,
+    stats,
+    parallel,
+    BiocParallel
+
