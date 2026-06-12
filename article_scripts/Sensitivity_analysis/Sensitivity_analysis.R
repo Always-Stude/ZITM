@@ -119,7 +119,11 @@ write.csv(x=result, file='result_FSP_Sensitivity_moment.csv',row.names=TRUE)
 
 result$Gene <- rownames(result)
 
-df_long <- result %>%
+result_clean <- result %>%
+  select(Gene, ends_with("moment1"), ends_with("moment2"), ends_with("moment3"))
+
+
+df_long <- result_clean %>%
   pivot_longer(
     cols = -Gene,
     names_to = c("Parameter","Statistic"),
@@ -128,10 +132,8 @@ df_long <- result %>%
   ) %>%
   mutate(
     Parameter = factor(Parameter, levels = c("kon","koff","kb","theta")),
-
     Statistic = factor(Statistic, levels = c("moment1","moment2","moment3"))
   )
-
 
 df_clean <- df_long %>%
   group_by(Parameter, Statistic) %>%
@@ -142,7 +144,7 @@ df_clean <- df_long %>%
   ungroup() %>%
   mutate(log10_Sensitivity = log10(Sensitivity))
 
-
+# 绘图
 ggplot(df_clean, aes(x = Statistic, y = log10_Sensitivity, color = Parameter)) +
   geom_boxplot(alpha = 0.6, outlier.shape = NA) +
   labs(x = "Statistical index", y = "log10(Sensitivity)", color = "Parameters") +
