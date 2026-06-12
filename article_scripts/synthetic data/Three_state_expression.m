@@ -39,10 +39,11 @@ parpool('local');
 parfor zushu = 1:GN
     rng(zushu); %   固定随机种子，结果可复现
     % 随机参数
-    lam1=0.1+4.9*rand(); 
-    lam2=0.1+4.9*rand();  
-    gamma=0.1+4.9*rand(); 
-    nu=5+45*rand();
+    lam = 0.2 + 5.8 * rand();
+    lam1 = lam;
+    lam2 = lam;  
+    gamma = 0.1 + 2.9 * rand(); 
+    nu = 10 + 20 * rand();
     nu1=nu;
     
     S5 = [];
